@@ -1,22 +1,22 @@
 //
-//  ViewController.m
+//  GTNewsViewController.m
 //  SampleApp
 //
 //  Created by dianyi on 2019/7/31.
 //  Copyright © 2019 dianyi. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GTNewsViewController.h"
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
+@interface GTNewsViewController () <UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) NSMutableArray *dataArray;
 @end
 
-@implementation ViewController
+@implementation GTNewsViewController
 
 - (instancetype)init
 {
@@ -33,12 +33,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = UIColor.redColor;
     view.frame = CGRectMake(100, 100, 100, 100);
     [self.view addSubview:view];
-    
+
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -66,7 +66,7 @@
 {
     GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if (!cell) {
-        cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: @"id"];
+        cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
         cell.delegate = self;
     }
     [cell layoutTableViewCell];
