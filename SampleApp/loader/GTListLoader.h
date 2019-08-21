@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 请求列表
+ */
 @interface GTListLoader : NSObject
 
-@end
+- (void)loadListData;
 
-NS_ASSUME_NONNULL_END
+@end
