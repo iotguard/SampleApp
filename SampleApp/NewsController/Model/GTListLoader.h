@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class GTListItem;
 
+typedef void(^GTListLoaderFinishBlock)(BOOL success, NSArray<GTListItem *> *dataArray);
 /**
  请求列表
  */
 @interface GTListLoader : NSObject
 
-- (void)loadListData;
+- (void)loadListDataWithFinishBlock:(GTListLoaderFinishBlock)finishBlock;
 
 @end

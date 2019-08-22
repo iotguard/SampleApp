@@ -10,5 +10,7 @@
 
 @interface GTDetailViewController : UIViewController
 
+- (instancetype)initWithUrlString:(NSString *)urlString;
+
 @end
 
