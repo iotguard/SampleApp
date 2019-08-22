@@ -10,6 +10,37 @@
 
 @implementation GTListItem
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.category = [aDecoder decodeObjectForKey:@"category"];
+        self.picUrl = [aDecoder decodeObjectForKey:@"picUrl"];
+        self.uniqueKey = [aDecoder decodeObjectForKey:@"uniqueKey"];
+        self.title = [aDecoder decodeObjectForKey:@"title"];
+        self.date = [aDecoder decodeObjectForKey:@"date"];
+        self.authorName = [aDecoder decodeObjectForKey:@"authorName"];
+        self.articleUrl = [aDecoder decodeObjectForKey:@"articleUrl"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.category forKey:@"category"];
+    [coder encodeObject:self.picUrl forKey:@"picUrl"];
+    [coder encodeObject:self.uniqueKey forKey:@"uniqueKey"];
+    [coder encodeObject:self.title forKey:@"title"];
+    [coder encodeObject:self.date forKey:@"date"];
+    [coder encodeObject:self.authorName forKey:@"authorName"];
+    [coder encodeObject:self.articleUrl forKey:@"articleUrl"];
+}
+
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 - (void)configWithDictionary:(NSDictionary *)dictionary
 {
     self.category = [dictionary objectForKey:@"category"];
