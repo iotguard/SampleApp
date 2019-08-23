@@ -9,7 +9,7 @@
 #import "GTVideoViewController.h"
 #import "GTVideoCoverView.h"
 
-@interface GTVideoViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface GTVideoViewController() <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
@@ -54,7 +54,8 @@
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTVideoCoverView" forIndexPath:indexPath];
     
     if ([cell isKindOfClass:[GTVideoCoverView class]]) {
-        
+        [((GTVideoCoverView *)cell) layoutWithVideoCoverUrl:@"icon.bundle/icon.png"
+                                            videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
     }
     
     return cell;
