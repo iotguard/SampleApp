@@ -7,6 +7,7 @@
 //
 
 #import "GTVideoViewController.h"
+#import "GTVideoCoverView.h"
 
 @interface GTVideoViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -33,12 +34,12 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 10;
     layout.minimumInteritemSpacing = 10;
-    layout.itemSize = CGSizeMake((self.view.bounds.size.width - 10)/2, 300);
+    layout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 16 * 9);
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"id"];
+    [collectionView registerClass:[GTVideoCoverView class] forCellWithReuseIdentifier:@"GTVideoCoverView"];
     
     [self.view addSubview:collectionView];
 }
@@ -50,18 +51,22 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"id" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTVideoCoverView" forIndexPath:indexPath];
+    
+    if ([cell isKindOfClass:[GTVideoCoverView class]]) {
+        
+    }
+    
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.item % 3 == 0) {
-        return CGSizeMake(self.view.bounds.size.width, 100);
-    } else {
-        return CGSizeMake((self.view.bounds.size.width - 10)/2, 300);
-    }
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.item % 3 == 0) {
+//        return CGSizeMake(self.view.bounds.size.width, 100);
+//    } else {
+//        return CGSizeMake((self.view.bounds.size.width - 10)/2, 300);
+//    }
+//}
 
 @end
