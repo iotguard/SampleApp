@@ -22,6 +22,7 @@
 		15B08FBF22F1939300E57F2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B08FBE22F1939300E57F2B /* main.m */; };
 		A141935323124F31001AB84E /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A141935223124F31001AB84E /* GTVideoPlayer.m */; };
 		A18AD7F322FEA3C9006CE334 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AD7F222FEA3C9006CE334 /* GTRecommendViewController.m */; };
+		A1965A242312CA4D0001A9C8 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A1965A232312CA4D0001A9C8 /* GTVideoToolbar.m */; };
 		A1CDDE332300202C00BABD8A /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CDDE322300202C00BABD8A /* GTNormalTableViewCell.m */; };
 		D45D2811108CDC756F8F7346 /* libPods-SampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0303683475F11521F540B39E /* libPods-SampleApp.a */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,8 @@
 		A141935223124F31001AB84E /* GTVideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoPlayer.m; sourceTree = "<group>"; };
 		A18AD7F122FEA3C9006CE334 /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
 		A18AD7F222FEA3C9006CE334 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
+		A1965A222312CA4D0001A9C8 /* GTVideoToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoToolbar.h; sourceTree = "<group>"; };
+		A1965A232312CA4D0001A9C8 /* GTVideoToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoToolbar.m; sourceTree = "<group>"; };
 		A1CDDE312300202C00BABD8A /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
 		A1CDDE322300202C00BABD8A /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 		FD5438D63E3CE98AEC7CA6B5 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				1504C47E230FDC1D003E1672 /* GTVideoCoverView.m */,
 				A141935123124F31001AB84E /* GTVideoPlayer.h */,
 				A141935223124F31001AB84E /* GTVideoPlayer.m */,
+				A1965A222312CA4D0001A9C8 /* GTVideoToolbar.h */,
+				A1965A232312CA4D0001A9C8 /* GTVideoToolbar.m */,
 			);
 			path = VideoController;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 			files = (
 				15B08FB422F1939200E57F2B /* GTNewsViewController.m in Sources */,
 				A141935323124F31001AB84E /* GTVideoPlayer.m in Sources */,
+				A1965A242312CA4D0001A9C8 /* GTVideoToolbar.m in Sources */,
 				15B08FBF22F1939300E57F2B /* main.m in Sources */,
 				15B08FB122F1939200E57F2B /* AppDelegate.m in Sources */,
 				150349A3230E303F009F24DD /* GTListItem.m in Sources */,

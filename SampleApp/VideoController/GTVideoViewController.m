@@ -8,6 +8,7 @@
 
 #import "GTVideoViewController.h"
 #import "GTVideoCoverView.h"
+#import "GTVideoToolbar.h"
 
 @interface GTVideoViewController() <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -34,7 +35,7 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 10;
     layout.minimumInteritemSpacing = 10;
-    layout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 16 * 9);
+    layout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 16 * 9 + GTVideoToolbarHeight);
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     collectionView.delegate = self;
@@ -54,7 +55,7 @@
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTVideoCoverView" forIndexPath:indexPath];
     
     if ([cell isKindOfClass:[GTVideoCoverView class]]) {
-        [((GTVideoCoverView *)cell) layoutWithVideoCoverUrl:@"icon.bundle/icon.png"
+        [((GTVideoCoverView *)cell) layoutWithVideoCoverUrl:@"icon.bundle/videoCover@3x.png"
                                             videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
     }
     
