@@ -10,6 +10,7 @@
 #import "GTNewsViewController.h"
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
+#import "GTSplashView.h"
 
 @interface AppDelegate ()
 
@@ -44,6 +45,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+    [self.window addSubview:({
+        GTSplashView *splashView = [[GTSplashView alloc] initWithFrame:self.window.bounds];
+        splashView;
+    })];
     return YES;
 }
 
@@ -72,6 +78,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    return YES;
 }
 
 
