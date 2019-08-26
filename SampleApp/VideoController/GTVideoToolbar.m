@@ -88,6 +88,66 @@
 
 - (void)layoutWithModel:(id)model
 {
-    self.backgroundColor = [UIColor redColor];
+    _avatorImageView.image = [UIImage imageNamed:@"icon.bundle/icon.png"];
+    _nickLabel.text = @"极客时间";
+    
+    _commentImageView.image = [UIImage imageNamed:@"icon.bundle/comment@3x.png"];
+    _commentLabel.text = @"100";
+    
+    _likeImageView.image = [UIImage imageNamed:@"icon.bundle/praise@3x.png"];
+    _likeLabel.text = @"25";
+    
+    _shareImageView.image = [UIImage imageNamed:@"icon.bundle/share@3x.png"];
+    _shareLabel.text = @"分享";
+    
+    [NSLayoutConstraint activateConstraints:@[
+        [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                     attribute:NSLayoutAttributeCenterY
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self
+                                     attribute:NSLayoutAttributeCenterY
+                                    multiplier:1
+                                      constant:0],
+        [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                     attribute:NSLayoutAttributeLeft
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self
+                                     attribute:NSLayoutAttributeLeft
+                                    multiplier:1
+                                      constant:15],
+        [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                     attribute:NSLayoutAttributeWidth
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                     attribute:NSLayoutAttributeNotAnAttribute
+                                    multiplier:1
+                                      constant:30],
+        [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                     attribute:NSLayoutAttributeNotAnAttribute
+                                    multiplier:1
+                                      constant:30],
+        
+        [NSLayoutConstraint constraintWithItem:_nickLabel
+                                     attribute:NSLayoutAttributeCenterY
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:_avatorImageView
+                                     attribute:NSLayoutAttributeCenterY
+                                    multiplier:1
+                                      constant:0],
+        [NSLayoutConstraint constraintWithItem:_nickLabel
+                                     attribute:NSLayoutAttributeLeft
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:_avatorImageView
+                                     attribute:NSLayoutAttributeRight
+                                    multiplier:1
+                                      constant:0],
+    ]];
+    
+    NSString *vflString = @"H:|-15-[_avatorImageView]-0-[_nickLabel]-(>=0)-[_commentImageView(==_avatorImageView)]-0-[_commentLabel]-15-[_likeImageView(==_avatorImageView)]-0-[_likeLabel]-15-[_shareImageView(==_avatorImageView)]-0-[_shareLabel]-15-|";
+    
+    [NSLayoutConstraint activateConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflString options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(_avatorImageView, _nickLabel, _commentImageView, _commentLabel, _likeImageView, _likeLabel, _shareImageView, _shareLabel)]];
 }
 @end
