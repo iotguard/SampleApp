@@ -21,13 +21,14 @@
 
 + (void)load
 {
-    [GTMediator registerScheme:@"detail://" processBlock:^(NSDictionary *params) {
-        NSString *url = [params objectForKey:@"url"];
-        UINavigationController *navigationController = (UINavigationController *)[params objectForKey:@"controller"];
-        GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:url];
-//        controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
-        [navigationController pushViewController:controller animated:YES];
-    }];
+//    [GTMediator registerScheme:@"detail://" processBlock:^(NSDictionary *params) {
+//        NSString *url = [params objectForKey:@"url"];
+//        UINavigationController *navigationController = (UINavigationController *)[params objectForKey:@"controller"];
+//        GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:url];
+//        [navigationController pushViewController:controller animated:YES];
+//    }];
+    
+    [GTMediator registerProtocol:@protocol(GTDetailViewControllerProtocol) class:[self class]];
 }
 
 - (void)dealloc
@@ -74,6 +75,11 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     self.progressView.progress = self.webView.estimatedProgress;
+}
+
+- (__kindof UIViewController *)detailViewControllerWithUrl:(NSString *)detailUrl
+{
+    return [[[self class] alloc] initWithUrlString:detailUrl];
 }
 
 @end

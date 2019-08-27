@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GTMediator.h"
 
-@interface GTDetailViewController : UIViewController
+@interface GTDetailViewController : UIViewController<GTDetailViewControllerProtocol>
 
 - (instancetype)initWithUrlString:(NSString *)urlString;
 

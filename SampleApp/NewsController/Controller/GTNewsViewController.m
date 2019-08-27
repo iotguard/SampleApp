@@ -60,7 +60,11 @@
 //    detailController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
 //    [self.navigationController pushViewController:detailController animated:YES];
     
-    [GTMediator openUrl:@"detail://" params:@{@"url":item.articleUrl, @"controller":self.navigationController}];
+//    [GTMediator openUrl:@"detail://" params:@{@"url":item.articleUrl, @"controller":self.navigationController}];
+    
+    Class cls = [GTMediator classForProtocol:@protocol(GTDetailViewControllerProtocol)];
+    [self.navigationController pushViewController:[[cls alloc] detailViewControllerWithUrl:item.articleUrl] animated:YES];
+    
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];
 }
 

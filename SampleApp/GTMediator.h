@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol GTDetailViewControllerProtocol <NSObject>
+- (__kindof UIViewController *)detailViewControllerWithUrl:(NSString *)detailUrl;
+@end
+
 @interface GTMediator : NSObject
 //target action
 + (__kindof UIViewController *)detailViewControllerWithUrl:(NSString *)detailUrl;
