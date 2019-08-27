@@ -10,6 +10,7 @@
 #import "GTNewsViewController.h"
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
+#import "GTMineViewController.h"
 #import "GTSplashView.h"
 
 @interface AppDelegate ()
@@ -21,24 +22,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    GTNewsViewController *viewController = [[GTNewsViewController alloc] init];
-    viewController.tabBarItem.title = @"新闻";
-    viewController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
-    viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
-    
+    GTNewsViewController *newsViewController = [[GTNewsViewController alloc] init];
     GTVideoViewController *videoController = [[GTVideoViewController alloc] init];
-    
     GTRecommendViewController *recommendController = [[GTRecommendViewController alloc] init];
-    
-    UIViewController *controller4 = [[UIViewController alloc] init];
-    controller4.view.backgroundColor = [UIColor lightGrayColor];
-    controller4.tabBarItem.title = @"我的";
-    controller4.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
-    controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
-    
+    GTMineViewController *mineViewController = [[GTMineViewController alloc] init];
     
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    [tabbarController setViewControllers:@[viewController, videoController, recommendController, controller4]];
+    [tabbarController setViewControllers:@[newsViewController, videoController, recommendController, mineViewController]];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
     

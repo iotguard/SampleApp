@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "GTScreen.h"
 #import "GTMediator.h"
+#import "GTLogin.h"
 
 @interface GTDetailViewController () <WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
@@ -48,6 +49,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(_shareArticle)];
     [self.view addSubview:({
         self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT + 44, self.view.frame.size.width, self.view.frame.size.height - STATUSBARHEIGHT - 44)];
         self.webView.navigationDelegate = self;
@@ -80,6 +83,11 @@
 - (__kindof UIViewController *)detailViewControllerWithUrl:(NSString *)detailUrl
 {
     return [[[self class] alloc] initWithUrlString:detailUrl];
+}
+
+- (void)_shareArticle
+{
+    [[GTLogin sharedLogin] shareToQQWithArticleUrl:[NSURL URLWithString:self.articleUrl]];
 }
 
 @end
